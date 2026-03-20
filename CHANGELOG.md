@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.2](https://github.com/playbro-games/ci-cd/compare/v1.0.1...v1.0.2) (2026-03-20)
+
+
+### Bug Fixes
+
+* add alias ([a3d4341](https://github.com/playbro-games/ci-cd/commit/a3d43412642b0d548b3d00d25c0768daba4306d2))
+* add alias ([55adfb9](https://github.com/playbro-games/ci-cd/commit/55adfb9baf254da2d5a08697a7e04a44b18d3412))
+
 ## [1.0.1](https://github.com/playbro-games/ci-cd/compare/v1.0.0...v1.0.1) (2026-03-20)
 
 
