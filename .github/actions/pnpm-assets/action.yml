@@ -1,0 +1,13 @@
+name: Assets cache
+description: Assets cache update
+
+runs:
+  using: composite
+  steps:
+    - name: Cache assets
+      uses: actions/cache@v4
+      with:
+        path: assets-cache
+        key: assets-${{ hashFiles('public/**') }}
+        restore-keys: |
+          assets-

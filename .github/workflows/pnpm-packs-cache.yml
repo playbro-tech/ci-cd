@@ -1,0 +1,16 @@
+name: pnpm-packs-cache
+
+on:
+  workflow_call:
+
+env:
+  GITHUB_AUTH_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
+
+jobs:
+  create-cache:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: playbro-games/ci-cd/.github/actions/pnpm-install@v1

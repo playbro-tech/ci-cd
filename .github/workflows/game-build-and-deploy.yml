@@ -1,0 +1,60 @@
+name: build and deploy game
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+      domain:
+        description: domain name
+        required: true
+        type: string
+      game_name:
+        description: Custom game name for URL
+        required: false
+        type: string
+        default: ''
+
+env:
+  GITHUB_AUTH_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 0
+
+      - uses: playbro-games/ci-cd/.github/actions/pnpm-install@v1
+
+      - uses: playbro-games/ci-cd/.github/actions/pnpm-assets@v1
+
+      - name: Set GAME_NAME if not set
+        run: |
+          NAME="${{ inputs.game_name }}"
+          if [ -z "$NAME" ]; then
+            NAME="${{ github.event.repository.name }}"
+          fi
+          echo "GAME_NAME=$NAME" >> $GITHUB_ENV
+        shell: bash
+
+      - name: Build and Upload Game
+        run: |
+          pnpm build
+          zip -r dist.zip dist
+          curl -fT dist.zip "${{ inputs.domain }}/${{ env.GAME_NAME }}/dist.zip"
+        env:
+          VITE_TOOLS: ${{ inputs.environment == 'dev' }}
+
+      - name: Build and Upload SOC
+        run: |
+          pnpm build
+          zip -r dist.zip dist
+          curl -fT dist.zip "${{ inputs.domain }}/soc_${{ env.GAME_NAME }}/dist.zip"
+        env:
+          VITE_TOOLS: ${{ inputs.environment == 'dev' }}
+          VITE_SOC: true
