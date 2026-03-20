@@ -1,4 +1,4 @@
-name: Release
+name: release ci-cd
 
 on:
   push:
@@ -12,16 +12,17 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
+
     steps:
       - uses: googleapis/release-please-action@v4
+        id: release
         with:
           token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
           release-type: simple
 
-      - name: Update major tag
-        if: startsWith(github.ref, 'refs/tags/')
+      - name: Update alias
+        if: ${{ steps.release.outputs.release_created == 'true' }}
         run: |
-          VERSION=${GITHUB_REF#refs/tags/}
-          MAJOR=v$(echo $VERSION | cut -d. -f1)
+          MAJOR=v${{ steps.release.outputs.major }}
           git tag -f $MAJOR
           git push origin $MAJOR --force
