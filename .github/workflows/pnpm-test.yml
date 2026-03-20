@@ -1,0 +1,19 @@
+name: pnpm-test
+
+on:
+  workflow_call:
+
+env:
+  GITHUB_AUTH_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
+  
+jobs:
+  test:
+    if: startsWith(github.head_ref, 'release-please--')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: playbro-games/ci-cd/.github/actions/pnpm-install@v1
+      - run: pnpm lint
+      - run: pnpm test
