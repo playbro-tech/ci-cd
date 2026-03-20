@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.3](https://github.com/playbro-games/ci-cd/compare/v1.0.2...v1.0.3) (2026-03-20)
+
+
+### Bug Fixes
+
+* checkout ([f48c666](https://github.com/playbro-games/ci-cd/commit/f48c666dc61f5c4e043a0bafce6859e7a0aa9c63))
+* checkout ([ca07ce8](https://github.com/playbro-games/ci-cd/commit/ca07ce84b73b462fd1caa672cce96ad73d96ea97))
+
 ## [1.0.2](https://github.com/playbro-games/ci-cd/compare/v1.0.1...v1.0.2) (2026-03-20)
 
 
