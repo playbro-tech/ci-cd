@@ -1,4 +1,4 @@
-name: Validate
+name: pnpm-validate
 
 on:
   workflow_call:

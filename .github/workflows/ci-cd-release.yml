@@ -17,3 +17,11 @@ jobs:
         with:
           token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
           release-type: simple
+
+      - name: Update major tag
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/}
+          MAJOR=v$(echo $VERSION | cut -d. -f1)
+          git tag -f $MAJOR
+          git push origin $MAJOR --force
