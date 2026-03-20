@@ -1,0 +1,35 @@
+name: Install pnpm
+description: Install dependencies with pnpm shared cache
+
+runs:
+  using: composite
+  steps:
+    - uses: pnpm/action-setup@v4
+      with:
+        standalone: true
+        run_install: false
+
+    - name: Set pnpm store path
+      run: |
+        pnpm config set store-dir ~/.pnpm-store
+      shell: bash
+
+    - name: Cache pnpm store
+      uses: actions/cache@v4
+      with:
+        path: ~/.pnpm-store
+        key: pnpm-store-${{ hashFiles('pnpm-lock.yaml') }}
+        restore-keys: |
+          pnpm-store-
+
+    - name: Set github config
+      run: pnpm config set '//npm.pkg.github.com/:_authToken' "${GITHUB_AUTH_TOKEN}"
+      shell: bash
+
+    - name: Set npm config
+      run: pnpm config set '//registry.npmjs.org/:_authToken' "${NPM_AUTH_TOKEN}"
+      shell: bash
+
+    - name: Install dependencies
+      run: pnpm install --frozen-lockfile --prefer-offline
+      shell: bash
