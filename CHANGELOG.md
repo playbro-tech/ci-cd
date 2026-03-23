@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.6](https://github.com/playbro-games/ci-cd/compare/v1.0.5...v1.0.6) (2026-03-23)
+
+
+### Bug Fixes
+
+* zip deploy ([7cde88e](https://github.com/playbro-games/ci-cd/commit/7cde88e163c2f63642277697eb60b16d494377be))
+* zip deploy ([ff4567a](https://github.com/playbro-games/ci-cd/commit/ff4567a4f9e518388cd5a3c147bca67b6129dec0))
+
 ## [1.0.5](https://github.com/playbro-games/ci-cd/compare/v1.0.4...v1.0.5) (2026-03-23)
 
 
