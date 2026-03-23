@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.5](https://github.com/playbro-games/ci-cd/compare/v1.0.4...v1.0.5) (2026-03-23)
+
+
+### Bug Fixes
+
+* headers added ([561184d](https://github.com/playbro-games/ci-cd/commit/561184d73f7ced5608567ef2f53004f1bdca0f06))
+* headers added ([3c37215](https://github.com/playbro-games/ci-cd/commit/3c372154f34392f7cf8592c4c826a4776f52c9cb))
+
 ## [1.0.4](https://github.com/playbro-games/ci-cd/compare/v1.0.3...v1.0.4) (2026-03-20)
 
 
