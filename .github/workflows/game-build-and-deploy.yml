@@ -15,6 +15,11 @@ on:
         required: false
         type: string
         default: ''
+      build_soc:
+        description: 'Build SOC version?'
+        required: false
+        type: boolean
+        default: false
 
 env:
   GITHUB_AUTH_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
@@ -35,26 +40,51 @@ jobs:
 
       - name: Set GAME_NAME if not set
         run: |
-          NAME="${{ inputs.game_name }}"
-          if [ -z "$NAME" ]; then
-            NAME="${{ github.event.repository.name }}"
+          GAME_NAME_INPUT="${{ inputs.game_name }}"
+          if [ -z "$GAME_NAME_INPUT" ]; then
+            GAME_NAME_INPUT="${{ github.event.repository.name }}"
           fi
-          echo "GAME_NAME=$NAME" >> $GITHUB_ENV
+          echo "GAME_NAME=$GAME_NAME_INPUT" >> $GITHUB_ENV
         shell: bash
 
+      - name: Set normalized DOMAIN
+        run: |
+          DOMAIN_INPUT="${{ inputs.domain }}"
+          echo "DOMAIN=${DOMAIN_INPUT%/}" >> $GITHUB_ENV
+        shell: bash
+      
+      - name: Set GAME_VERSION
+        run: |
+          if [[ "${GITHUB_REF_TYPE}" != "tag" ]]; then
+            echo "This workflow can run only on tags"
+            exit 1
+          fi
+          echo "GAME_VERSION=${GITHUB_REF_NAME}" >> $GITHUB_ENV
+
+      - name: Build and Upload SOC
+        if: ${{ inputs.build_soc }}
+        run: |
+          pnpm build
+          zip -r dist.zip dist
+          curl -fT dist.zip \
+            -H "X-Environment: ${{ inputs.environment }}" \
+            -H "X-Game-Version: ${{ env.GAME_VERSION }}" \
+            -H "X-Notify: false" \
+            "${{ env.DOMAIN }}/soc_${{ env.GAME_NAME }}"
+          rm -rf dist.zip dist
+        env:
+          VITE_TOOLS: ${{ inputs.environment == 'dev' }}
+          VITE_SOC: true
+              
       - name: Build and Upload Game
         run: |
           pnpm build
           zip -r dist.zip dist
-          curl -fT dist.zip "${{ inputs.domain }}/${{ env.GAME_NAME }}/dist.zip"
+          curl -fT dist.zip \
+            -H "X-Environment: ${{ inputs.environment }}" \
+            -H "X-Game-Version: ${{ env.GAME_VERSION }}" \
+            -H "X-Notify: true" \
+            "${{ env.DOMAIN }}/${{ env.GAME_NAME }}"
         env:
           VITE_TOOLS: ${{ inputs.environment == 'dev' }}
 
-      - name: Build and Upload SOC
-        run: |
-          pnpm build
-          zip -r dist.zip dist
-          curl -fT dist.zip "${{ inputs.domain }}/soc_${{ env.GAME_NAME }}/dist.zip"
-        env:
-          VITE_TOOLS: ${{ inputs.environment == 'dev' }}
-          VITE_SOC: true
