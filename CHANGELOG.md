@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.8](https://github.com/playbro-games/ci-cd/compare/v1.0.7...v1.0.8) (2026-03-24)
+
+
+### Bug Fixes
+
+* fix: typo publish ([9968c95](https://github.com/playbro-games/ci-cd/commit/9968c95e00e4c48c91ba974864e885ce31d2e8bf))
+* fix: typo publish ([b6794dc](https://github.com/playbro-games/ci-cd/commit/b6794dc6d8b4cb1d34315c5e86b2fa82d23d315b))
+
 ## [1.0.7](https://github.com/playbro-games/ci-cd/compare/v1.0.6...v1.0.7) (2026-03-24)
 
 
