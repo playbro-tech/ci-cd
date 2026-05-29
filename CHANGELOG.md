@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.9](https://github.com/playbro-games/ci-cd/compare/v1.0.8...v1.0.9) (2026-05-29)
+
+
+### Bug Fixes
+
+* prod permissions ([e935045](https://github.com/playbro-games/ci-cd/commit/e935045ef0e71be6c384069f9fd863a94a7498f6))
+* prod permissions ([597ea02](https://github.com/playbro-games/ci-cd/commit/597ea022067b5dbd5c8bbdc72da62a2a9ca03187))
+
 ## [1.0.8](https://github.com/playbro-games/ci-cd/compare/v1.0.7...v1.0.8) (2026-03-24)
 
 
