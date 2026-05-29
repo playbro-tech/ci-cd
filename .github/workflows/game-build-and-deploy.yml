@@ -107,3 +107,10 @@ jobs:
             "${{ env.DOMAIN }}/${{ env.GAME_NAME }}.zip"
         env:
           VITE_TOOLS: ${{ inputs.environment == 'dev' }}
+
+      - name: Enable Cloudflare Development Mode
+        run: |
+          curl -X PATCH "https://api.cloudflare.com/client/v4/zones/d4e632db0b523f3d936a15f0077ec872/settings/development_mode" \
+            -H "Authorization: Bearer ${{ secrets.CF_API_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            --data '{"value":"on"}'
