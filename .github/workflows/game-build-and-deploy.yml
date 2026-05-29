@@ -32,11 +32,12 @@ jobs:
       - name: Check deploy permissions
         if: ${{ inputs.environment == 'prod' }}
         run: |
-          ALLOWED_USERS=("ksv90")
+          ALLOWED_USERS="${{ secrets.PROD_DEPLOY_USERS }}"
+          IFS=',' read -ra USERS <<< "$ALLOWED_USERS"
 
           IS_ALLOWED=false
 
-          for USER in "${ALLOWED_USERS[@]}"; do
+          for USER in "${USERS[@]}"; do
             if [[ "$USER" == "${{ github.actor }}" ]]; then
               IS_ALLOWED=true
               break
