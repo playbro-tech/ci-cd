@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.10](https://github.com/playbro-games/ci-cd/compare/v1.0.9...v1.0.10) (2026-05-29)
+
+
+### Bug Fixes
+
+* env for prod ([d04b3f9](https://github.com/playbro-games/ci-cd/commit/d04b3f9407a5378ecaada08ca270c2f92eb5518a))
+* env for prod ([64552f2](https://github.com/playbro-games/ci-cd/commit/64552f2f0b87e1be12279f57f04753cc2e288a7a))
+
 ## [1.0.9](https://github.com/playbro-games/ci-cd/compare/v1.0.8...v1.0.9) (2026-05-29)
 
 
