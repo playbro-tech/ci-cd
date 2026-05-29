@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.11](https://github.com/playbro-games/ci-cd/compare/v1.0.10...v1.0.11) (2026-05-29)
+
+
+### Bug Fixes
+
+* dev mode on after deploy ([3c86cad](https://github.com/playbro-games/ci-cd/commit/3c86cadb8e2383ffbb982b25d383dab2cca5d7c4))
+* dev mode on after deploy ([0cbb771](https://github.com/playbro-games/ci-cd/commit/0cbb771e614a9aca5dd5837054d201ce742cd75e))
+
 ## [1.0.10](https://github.com/playbro-games/ci-cd/compare/v1.0.9...v1.0.10) (2026-05-29)
 
 
