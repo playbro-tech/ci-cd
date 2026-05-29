@@ -29,6 +29,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Check deploy permissions
+        if: ${{ inputs.environment == 'prod' }}
+        run: |
+          ALLOWED_USERS=("ksv90")
+
+          IS_ALLOWED=false
+
+          for USER in "${ALLOWED_USERS[@]}"; do
+            if [[ "$USER" == "${{ github.actor }}" ]]; then
+              IS_ALLOWED=true
+              break
+            fi
+          done
+
+          if [[ "$IS_ALLOWED" != "true" ]]; then
+            echo "User '${{ github.actor }}' is not allowed to deploy to production"
+            exit 1
+          fi
+
       - uses: actions/checkout@v4
         with:
           lfs: true
@@ -52,7 +71,7 @@ jobs:
           DOMAIN_INPUT="${{ inputs.domain }}"
           echo "DOMAIN=${DOMAIN_INPUT%/}" >> $GITHUB_ENV
         shell: bash
-      
+
       - name: Set GAME_VERSION
         run: |
           if [[ "${GITHUB_REF_TYPE}" != "tag" ]]; then
@@ -75,7 +94,7 @@ jobs:
         env:
           VITE_TOOLS: ${{ inputs.environment == 'dev' }}
           VITE_SOC: true
-              
+
       - name: Build and Upload Game
         run: |
           pnpm build
@@ -87,4 +106,3 @@ jobs:
             "${{ env.DOMAIN }}/${{ env.GAME_NAME }}.zip"
         env:
           VITE_TOOLS: ${{ inputs.environment == 'dev' }}
-
