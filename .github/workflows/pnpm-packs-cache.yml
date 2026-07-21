@@ -13,4 +13,4 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: playbro-games/ci-cd/.github/actions/pnpm-install@v1
+      - uses: playbro-tech/ci-cd/.github/actions/pnpm-install@v1

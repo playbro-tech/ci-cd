@@ -19,9 +19,9 @@ jobs:
           fetch-depth: 0
           lfs: true
 
-      - uses: playbro-games/ci-cd/.github/actions/pnpm-install@v1
-      
-      - uses: playbro-games/ci-cd/.github/actions/pnpm-assets@v1
+      - uses: playbro-tech/ci-cd/.github/actions/pnpm-install@v1
+
+      - uses: playbro-tech/ci-cd/.github/actions/pnpm-assets@v1
 
       - name: Convert files
         run: pnpm meta-plugin:convert

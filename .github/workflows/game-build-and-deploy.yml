@@ -54,9 +54,9 @@ jobs:
           lfs: true
           fetch-depth: 0
 
-      - uses: playbro-games/ci-cd/.github/actions/pnpm-install@v1
+      - uses: playbro-tech/ci-cd/.github/actions/pnpm-install@v1
 
-      - uses: playbro-games/ci-cd/.github/actions/pnpm-assets@v1
+      - uses: playbro-tech/ci-cd/.github/actions/pnpm-assets@v1
 
       - name: Set GAME_NAME if not set
         run: |
