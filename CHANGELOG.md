@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.12](https://github.com/playbro-tech/ci-cd/compare/v1.0.11...v1.0.12) (2026-07-21)
+
+
+### Bug Fixes
+
+* rename ([550d922](https://github.com/playbro-tech/ci-cd/commit/550d922cc894cb38f54624174864521dd6b7b4cc))
+* rename ([73a0c53](https://github.com/playbro-tech/ci-cd/commit/73a0c536ad119b9b9839ed0d2c7d0e70ef11e920))
+
 ## [1.0.11](https://github.com/playbro-games/ci-cd/compare/v1.0.10...v1.0.11) (2026-05-29)
 
 
