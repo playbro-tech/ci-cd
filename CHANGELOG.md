@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.15](https://github.com/playbro-tech/ci-cd/compare/v1.0.14...v1.0.15) (2026-09-28)
+
+
+### Bug Fixes
+
+* set env ([49a4185](https://github.com/playbro-tech/ci-cd/commit/49a418584ad58b2a01ca0607b31c244cf6002829))
+
 ## [1.0.14](https://github.com/playbro-tech/ci-cd/compare/v1.0.13...v1.0.14) (2026-09-28)
 
 
