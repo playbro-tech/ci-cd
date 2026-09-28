@@ -5,6 +5,7 @@ on:
 
 env:
   GITHUB_AUTH_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
+  PLAYBRO_REGISTRY: ${{ secrets.PLAYBRO_REGISTRY }}
 
 jobs:
   test:
