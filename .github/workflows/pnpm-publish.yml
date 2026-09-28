@@ -5,20 +5,18 @@ on:
 
 env:
   PLAYBRO_REGISTRY: https://npm.pkg.github.com
-  GITHUB_AUTH_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
+  GITHUB_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   publish:
+    permissions:
+      contents: read
+      packages: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Debug env
-        run: |
-          echo "PLAYBRO_REGISTRY=${PLAYBRO_REGISTRY}"
-          echo "GITHUB_AUTH_TOKEN=${GITHUB_AUTH_TOKEN:+set}"
-          cat .npmrc
       - uses: playbro-tech/ci-cd/.github/actions/pnpm-install@v1
       - run: pnpm build
       - run: pnpm publish --no-git-checks --access public
