@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.14](https://github.com/playbro-tech/ci-cd/compare/v1.0.13...v1.0.14) (2026-09-28)
+
+
+### Bug Fixes
+
+* debug ([34afdeb](https://github.com/playbro-tech/ci-cd/commit/34afdeb20fa528b6fae531245f4e86581ef17e0a))
+
 ## [1.0.13](https://github.com/playbro-tech/ci-cd/compare/v1.0.12...v1.0.13) (2026-09-28)
 
 
