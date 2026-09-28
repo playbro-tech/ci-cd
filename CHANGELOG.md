@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.13](https://github.com/playbro-tech/ci-cd/compare/v1.0.12...v1.0.13) (2026-09-28)
+
+
+### Bug Fixes
+
+* env registry ([7c3c5a2](https://github.com/playbro-tech/ci-cd/commit/7c3c5a272dab0c059ecd87926cf90c3a84dbddee))
+
 ## [1.0.12](https://github.com/playbro-tech/ci-cd/compare/v1.0.11...v1.0.12) (2026-07-21)
 
 
