@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/playbro-tech/ci-cd/compare/v1.1.0...v1.1.1) (2026-09-29)
+
+
+### Bug Fixes
+
+* permissions ([fc49393](https://github.com/playbro-tech/ci-cd/commit/fc49393bcddb7c24b28a9b2bb56c2dbc22c43364))
+
 ## [1.1.0](https://github.com/playbro-tech/ci-cd/compare/v1.0.15...v1.1.0) (2026-09-29)
 
 
