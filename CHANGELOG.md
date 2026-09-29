@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/playbro-tech/ci-cd/compare/v1.0.15...v1.1.0) (2026-09-29)
+
+
+### Features
+
+* proto docs ([b156662](https://github.com/playbro-tech/ci-cd/commit/b156662b2c5273cfc34c3c2623afa083de6e9d55))
+
 ## [1.0.15](https://github.com/playbro-tech/ci-cd/compare/v1.0.14...v1.0.15) (2026-09-28)
 
 
