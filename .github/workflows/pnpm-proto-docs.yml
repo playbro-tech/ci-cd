@@ -8,9 +8,9 @@ env:
   GITHUB_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
-  publish:
+  deploy-docs:
     permissions:
-      contents: read
+      contents: write
       packages: write
     runs-on: ubuntu-latest
     steps:
