@@ -1,0 +1,29 @@
+name: pnpm-proto-docs
+
+on:
+  workflow_call:
+
+env:
+  PLAYBRO_REGISTRY: https://npm.pkg.github.com
+  GITHUB_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  publish:
+    permissions:
+      contents: read
+      packages: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: playbro-tech/ci-cd/.github/actions/pnpm-install@v1
+
+      - run: pnpm proto:generate
+      - run: pnpm docs:build
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist/docs
