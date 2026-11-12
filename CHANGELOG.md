@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/playbro-tech/ci-cd/compare/v1.1.1...v1.1.2) (2026-11-12)
+
+
+### Bug Fixes
+
+* **registry:** configure GitHub Packages before installing dependencies ([0b1968f](https://github.com/playbro-tech/ci-cd/commit/0b1968fc37b851cbd02b120c11eb90a8b2f2b8af))
+
 ## [1.1.1](https://github.com/playbro-tech/ci-cd/compare/v1.1.0...v1.1.1) (2026-09-29)
 
 
