@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/playbro-tech/ci-cd/compare/v1.1.2...v1.1.3) (2026-11-12)
+
+
+### Bug Fixes
+
+* **registry:** preserve scoped registry keys with npm config ([a95c348](https://github.com/playbro-tech/ci-cd/commit/a95c3483498d520a5af400fb7ac2e6593c02a309))
+
 ## [1.1.2](https://github.com/playbro-tech/ci-cd/compare/v1.1.1...v1.1.2) (2026-11-12)
 
 
