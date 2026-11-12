@@ -24,7 +24,7 @@ runs:
 
     - name: Configure GitHub Packages
       run: |
-        pnpm config set --location=project '@playbro-tech:registry' 'https://npm.pkg.github.com'
+        npm config set --location=project '@playbro-tech:registry=https://npm.pkg.github.com'
         pnpm config set '//npm.pkg.github.com/:_authToken' "${GITHUB_AUTH_TOKEN}"
       shell: bash
 
