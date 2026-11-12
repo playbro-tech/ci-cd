@@ -22,8 +22,10 @@ runs:
         restore-keys: |
           pnpm-store-
 
-    - name: Set github config
-      run: pnpm config set '//npm.pkg.github.com/:_authToken' "${GITHUB_AUTH_TOKEN}"
+    - name: Configure GitHub Packages
+      run: |
+        pnpm config set --location=project '@playbro-tech:registry' 'https://npm.pkg.github.com'
+        pnpm config set '//npm.pkg.github.com/:_authToken' "${GITHUB_AUTH_TOKEN}"
       shell: bash
 
     - name: Set npm config
